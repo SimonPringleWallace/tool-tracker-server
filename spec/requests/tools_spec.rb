@@ -66,15 +66,15 @@ RSpec.describe 'Tools API' do
     end
   end
 
-  describe 'PATCH /articles/:id' do
-    def article_diff
-      { title: 'Two Stupid Tricks' }
+  describe 'PATCH /tools/:id' do
+  def tool_diff
+      { quantity: 12 }
     end
-  skip 'updates an article' do
-     patch "/articles/#{article.id}", params:{article: article_diff }
-     article_response = JSON.parse(response.body)
-expect(response).to be_success
-expect(article_response['title']).to eq(article_diff[:title])
+  it 'updates a tool quantity' do
+    patch "/tools/#{tool.id}", params: {tool: tool_diff }
+    tool_response = JSON.parse(response.body)
+    expect(response).to be_success
+    expect(tool_response['quantity']).to eq(article_diff[:quantity])
   end
 end
 

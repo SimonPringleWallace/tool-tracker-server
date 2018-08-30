@@ -23,7 +23,13 @@ RSpec.describe 'routes for tools' do
    )
  end
 
-
+ it 'routes PATCH /tools/:id to the tools#update action' do
+   expect(patch('/tools/1')).to route_to(
+     controller: 'tools',
+     action: 'update',
+     id: '1'
+   )
+ end
 
   skip 'routes POST /sign-in to the users#signin action' do
     expect(post('/sign-in')).to route_to('users#signin')
@@ -31,13 +37,5 @@ RSpec.describe 'routes for tools' do
 
   skip 'routes POST /sign-up to the users#signup action' do
     expect(post('/sign-up')).to route_to('users#signup')
-  end
-
-
-  skip 'routes PATCH /change-password/:id to the users#changepw action' do
-    expect(patch('/change-password')).to route_to(
-      controller: 'users',
-      action: 'changepw'
-    )
   end
 end
