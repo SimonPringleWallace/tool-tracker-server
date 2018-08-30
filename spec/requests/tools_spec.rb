@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'pry'
 require 'rails_helper'
 
 RSpec.describe 'Tools API' do
@@ -39,19 +39,19 @@ RSpec.describe 'Tools API' do
     end
   end
 
-  describe 'GET /articles/:id' do
-    skip 'shows one article' do
+  describe 'GET /tools/:id' do
+    it 'shows one tool' do
       # make a get request to articles with the id of the article that was
       # created before running this test
-      get "/articles/#{article.id}"
+      get "/tools/#{tool.id}"
 
       expect(response).to be_success
 
-      article_response = JSON.parse(response.body)
+      tool_response = JSON.parse(response.body)
 
-      expect(article_response['id']).to eq(article.id)
+      expect(tool_response['id']).to eq(tool.id)
 
-      expect(article_response['title']).to eq(article_params[:title])
+      expect(tool_response['name']).to eq(tool.name)
     end
   end
 

@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   patch '/change-password' => 'users#changepw'
   #tools routes
   get '/tools' => 'tools#index'
+  get '/tools/:id' => 'tools#show'
 end
