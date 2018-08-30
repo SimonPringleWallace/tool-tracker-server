@@ -24,6 +24,15 @@ class ToolsController < ApplicationController
     head :no_content
   end
 
+#update a tool
+  def update
+    if @tool.update(tool_params)
+      render json: @tool
+    else
+      render json: @tool.errors, status: :unprocessable_entity
+    end
+  end
+
   # POST /tools
   # POST /tools.json
   def create

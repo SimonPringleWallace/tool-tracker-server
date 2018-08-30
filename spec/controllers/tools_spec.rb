@@ -66,22 +66,22 @@ RSpec.describe ToolsController do
   end
 
   describe 'PATCH update' do
-    def article_diff
-      { title: 'Two Stupid Tricks' }
+    def tool_diff
+      { quantity: 12 }
     end
 
     before(:each) do
-      patch :update, params: { id: article.id, article: article_diff }
+      patch :update, params: { id: tool.id, tool: tool_diff }
     end
 
-    skip 'is successful' do
+    it 'is successful' do
       expect(response.status).to eq(200)
     end
 
-    skip 'renders a JSON response' do
-      article_response = JSON.parse(response.body)
+    it 'renders a JSON response' do
+      tool_response = JSON.parse(response.body)
 
-      expect(article_response['title']).to eq(article_diff[:title])
+      expect(tool_response['quantity']).to eq(tool_diff[:quantity])
     end
   end
 

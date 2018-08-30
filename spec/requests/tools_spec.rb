@@ -74,7 +74,7 @@ RSpec.describe 'Tools API' do
     patch "/tools/#{tool.id}", params: {tool: tool_diff }
     tool_response = JSON.parse(response.body)
     expect(response).to be_success
-    expect(tool_response['quantity']).to eq(article_diff[:quantity])
+    expect(tool_response['quantity']).to eq(tool_diff[:quantity])
   end
 end
 
