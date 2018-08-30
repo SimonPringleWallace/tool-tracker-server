@@ -41,17 +41,17 @@ RSpec.describe ToolsController do
   end
 
   describe 'GET show' do
-    before(:each) { get :show, params: { id: article.id } }
-    skip 'is successful' do
+    before(:each) { get :show, params: { id: tool.id } }
+    it 'is successful' do
       expect(response.status).to eq(200)
     end
 
-    skip 'renders a JSON response' do
-      article_response = JSON.parse(response.body)
+    it 'renders a JSON response' do
+      tool_response = JSON.parse(response.body)
 
-      expect(article_response).not_to be_nil
-      expect(article_response['id']).to eq(article.id)
-      expect(article_response['title']).to eq(article_params[:title])
+      expect(tool_response).not_to be_nil
+      expect(tool_response['id']).to eq(tool.id)
+      expect(tool_response['name']).to eq(tool_params[:name])
     end
   end
 

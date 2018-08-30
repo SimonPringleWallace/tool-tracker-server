@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ToolsController < OpenReadController
-  before_action :set_example, only: %i[update destroy]
+  before_action :set_tool, only: %i[show update destroy]
 
   # GET /examples
   # GET /examples.json
@@ -14,46 +14,29 @@ class ToolsController < OpenReadController
   # GET /examples/1
   # GET /examples/1.json
   def show
-    render json: Example.find(params[:id])
+    render json: @tool
   end
 
   # POST /examples
   # POST /examples.json
   def create
-    @example = current_user.examples.build(example_params)
+    @tool = Tool.build(tool_params)
 
-    if @example.save
-      render json: @example, status: :created
+    if @tool.save
+      render json: @tool, status: :created
     else
-      render json: @example.errors, status: :unprocessable_entity
+      render json: @tool.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /examples/1
-  # PATCH/PUT /examples/1.json
-  def update
-    if @example.update(example_params)
-      render json: @example
-    else
-      render json: @example.errors, status: :unprocessable_entity
-    end
+
+  def set_tool
+    @tool = Tool.find(params[:id])
   end
 
-  # DELETE /examples/1
-  # DELETE /examples/1.json
-  def destroy
-    @example.destroy
-
-    head :no_content
+  def tool_params
+    params.require(:tool).permit(:name, :quantity, :available)
   end
 
-  def set_example
-    @example = current_user.examples.find(params[:id])
-  end
-
-  def example_params
-    params.require(:example).permit(:text)
-  end
-
-  private :set_example, :example_params
+  private :set_tool, :tool_params
 end
