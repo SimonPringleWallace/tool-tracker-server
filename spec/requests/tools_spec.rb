@@ -55,14 +55,14 @@ RSpec.describe 'Tools API' do
     end
   end
 
-  describe 'DELETE /articles/:id' do
-    skip 'deletes an article' do
-    delete "/articles/#{article.id}"
+  describe 'DELETE /tools/:id' do
+    it 'deletes a tool' do
+    delete "/tools/#{tool.id}"
 
     expect(response).to be_success
     expect(response.status).to eq(204)
     expect(response.body).to be_empty
-    expect(article).to be_nil
+    expect(tool).to be_nil
     end
   end
 

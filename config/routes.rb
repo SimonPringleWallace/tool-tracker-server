@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   #tools routes
   get '/tools' => 'tools#index'
   get '/tools/:id' => 'tools#show'
+  delete '/tools/:id' => 'tools#destroy'
 end
