@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe ToolsController do
   def tool_params
     {
@@ -55,12 +54,14 @@ RSpec.describe ToolsController do
     end
   end
 
+# binding.pry
+
   describe 'DELETE destroy' do
-    skip 'is successful and returns an empty response' do
-    delete :destroy, params: { id: article.id }
+    it 'is successful and returns an empty response' do
+      delete :destroy, params: { id: tool.id }
       expect(response.body).to be_empty
 
-      expect(article).to be_nil
+      expect(tool).to be_nil
     end
   end
 

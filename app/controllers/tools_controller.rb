@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ToolsController < OpenReadController
+class ToolsController < ApplicationController
   before_action :set_tool, only: %i[show update destroy]
 
   # GET /examples
@@ -11,14 +11,21 @@ class ToolsController < OpenReadController
     render json: @tools
   end
 
-  # GET /examples/1
-  # GET /examples/1.json
+  # GET /tools/1
+  # GET /tools/1.json
   def show
     render json: @tool
   end
 
-  # POST /examples
-  # POST /examples.json
+# DELETE /Tools/1
+  def destroy
+    @tool.destroy
+
+    head :no_content
+  end
+
+  # POST /tools
+  # POST /tools.json
   def create
     @tool = Tool.build(tool_params)
 

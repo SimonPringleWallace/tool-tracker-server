@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
+
   #tools routes
   get '/tools' => 'tools#index'
   get '/tools/:id' => 'tools#show'
