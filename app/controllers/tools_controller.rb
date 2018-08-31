@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class ToolsController < ApplicationController
+class ToolsController < ProtectedController
   before_action :set_tool, only: %i[show update destroy]
 
   # GET /examples
   # GET /examples.json
   def index
-    @tools = Tool.all
+    @tools = current_user.tools.all
 
     render json: @tools
   end
@@ -36,7 +36,7 @@ class ToolsController < ApplicationController
   # POST /tools
   # POST /tools.json
   def create
-    @tool = Tool.new(tool_params)
+    @tool = current_user.tools.new(tool_params)
 
     if @tool.save
       render json: @tool, status: :created
@@ -47,7 +47,7 @@ class ToolsController < ApplicationController
 
 
   def set_tool
-    @tool = Tool.find(params[:id])
+    @tool = current_user.tools.find(params[:id])
   end
 
   def tool_params

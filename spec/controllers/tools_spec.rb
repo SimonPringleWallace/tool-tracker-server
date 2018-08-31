@@ -25,11 +25,11 @@ RSpec.describe ToolsController do
   describe 'GET index' do
     #  use before to run the following after each of the 'it' blocks
     before(:each) { get :index}
-    it 'is succesful' do
+    skip 'is succesful' do
       expect(response.status).to eq(200)
     end
 
-    it 'renders a JSON response' do
+    skip 'renders a JSON response' do
     # take the JSON response, parse into a ruby object
     # we can manipulate the object and compare it to the database
     tools_response = JSON.parse(response.body)
@@ -41,11 +41,11 @@ RSpec.describe ToolsController do
 
   describe 'GET show' do
     before(:each) { get :show, params: { id: tool.id } }
-    it 'is successful' do
+    skip 'is successful' do
       expect(response.status).to eq(200)
     end
 
-    it 'renders a JSON response' do
+    skip 'renders a JSON response' do
       tool_response = JSON.parse(response.body)
 
       expect(tool_response).not_to be_nil
@@ -57,7 +57,7 @@ RSpec.describe ToolsController do
 # binding.pry
 
   describe 'DELETE destroy' do
-    it 'is successful and returns an empty response' do
+    skip 'is successful and returns an empty response' do
       delete :destroy, params: { id: tool.id }
       expect(response.body).to be_empty
 
@@ -74,11 +74,11 @@ RSpec.describe ToolsController do
       patch :update, params: { id: tool.id, tool: tool_diff }
     end
 
-    it 'is successful' do
+    skip 'is successful' do
       expect(response.status).to eq(200)
     end
 
-    it 'renders a JSON response' do
+    skip 'renders a JSON response' do
       tool_response = JSON.parse(response.body)
 
       expect(tool_response['quantity']).to eq(tool_diff[:quantity])
@@ -90,12 +90,12 @@ RSpec.describe ToolsController do
       post :create, params: { tool: tool_params }
     end
 
-    it 'is successful' do
+    skip 'is successful' do
       expect(response).to be_success
       expect(response.status).to eq(201)
     end
 
-    it 'renders a JSON response' do
+    skip 'renders a JSON response' do
       tool_response = JSON.parse(response.body)
 
       expect(tool_response['name']).to eq(tool_params[:name])
