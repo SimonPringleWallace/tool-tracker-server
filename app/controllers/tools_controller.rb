@@ -36,7 +36,7 @@ class ToolsController < ApplicationController
   # POST /tools
   # POST /tools.json
   def create
-    @tool = Tool.build(tool_params)
+    @tool = Tool.new(tool_params)
 
     if @tool.save
       render json: @tool, status: :created

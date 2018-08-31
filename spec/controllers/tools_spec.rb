@@ -87,19 +87,20 @@ RSpec.describe ToolsController do
 
   describe 'POST create' do
     before(:each) do
-      post :create, params: { article: article_params }
+      post :create, params: { tool: tool_params }
     end
 
-    skip 'is successful' do
+    it 'is successful' do
       expect(response).to be_success
       expect(response.status).to eq(201)
     end
 
-    skip 'renders a JSON response' do
-      article_response = JSON.parse(response.body)
+    it 'renders a JSON response' do
+      tool_response = JSON.parse(response.body)
 
-      expect(article_response['title']).to eq(article_params[:title])
-      expect(article_response['content']).to eq(article_params[:content])
+      expect(tool_response['name']).to eq(tool_params[:name])
+      expect(tool_response['quantity']).to eq(tool_params[:quantity])
+      expect(tool_response['available']).to eq(tool_params[:available])
     end
   end
 end
