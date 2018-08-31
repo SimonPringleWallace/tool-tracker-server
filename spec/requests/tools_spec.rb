@@ -72,19 +72,22 @@ RSpec.describe 'Tools API' do
     end
   it 'updates a tool quantity' do
     patch "/tools/#{tool.id}", params: {tool: tool_diff }
+
     tool_response = JSON.parse(response.body)
     expect(response).to be_success
     expect(tool_response['quantity']).to eq(tool_diff[:quantity])
   end
 end
 
-  describe 'POST /articles' do
-    skip 'creates an article' do
-    post '/articles/', params:{article: article_params}
-         article_response = JSON.parse(response.body)
+  describe 'POST /tools' do
+    it 'creates a new tool' do
+    post '/tools/', params:{tool: tool_params}
+         tool_response = JSON.parse(response.body)
     expect(response).to be_success
-    expect(article_response['title']).to eq(article_params[:title])
-    expect(article_response['content']).to eq(article_params[:content])
+    expect(tool_response['name']).to eq(tool_params[:name])
+    expect(tool_response['quantity']).to eq(tool_params[:quantity])
+    expect(tool_response['available']).to eq(tool_params[:available])
+
     end
   end
 end

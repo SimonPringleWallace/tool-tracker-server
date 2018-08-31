@@ -31,11 +31,7 @@ RSpec.describe 'routes for tools' do
    )
  end
 
-  skip 'routes POST /sign-in to the users#signin action' do
-    expect(post('/sign-in')).to route_to('users#signin')
-  end
-
-  skip 'routes POST /sign-up to the users#signup action' do
-    expect(post('/sign-up')).to route_to('users#signup')
+  it 'routes POST /tools to the tools#create action' do
+    expect(post('/tools')).to route_to('tools#create')
   end
 end
