@@ -51,7 +51,7 @@ class ToolsController < ProtectedController
   end
 
   def tool_params
-    params.require(:tool).permit(:name, :quantity, :available)
+    params.require(:tools).permit(:name, :quantity, :available)
   end
 
   private :set_tool, :tool_params
