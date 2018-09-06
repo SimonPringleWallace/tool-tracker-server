@@ -1,4 +1,4 @@
-# The Hammer!
+# The Hammer API!
 
   The Hammer is a tool inventory managment system inspired by the need for easy
   to use accessible, and cost effective IMSs in the non-profit sector. The
