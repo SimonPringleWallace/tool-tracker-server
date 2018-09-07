@@ -4,7 +4,8 @@
   to use accessible, and cost effective IMSs in the non-profit sector. The
   construction of this API focused on wholistic management of a single resource
   and a delibrate build process that took advantage of Rspec to guide the
-  construction of models, routes and controllers.
+  construction of models, routes and controllers and the smooth integration of
+  API with [The Hammer's client side application](https://github.com/SimonPringleWallace/tool-tracker-client) 
 
   Writing tests during the development of this API proved to be one of the
   great satisfactions of the project and also one of the biggest expenditures
