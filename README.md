@@ -5,8 +5,8 @@
   construction of this API focused on wholistic management of a single resource
   and a delibrate build process that took advantage of Rspec to guide the
   construction of models, routes and controllers and the smooth integration of
-  API with [The Hammer's client side application](https://simonpringlewallace.github.io/tool-tracker-client/) 
-  documentation for which can be found [here](https://github.com/SimonPringleWallace/tool-tracker-client)
+  API with [The Hammer's client side application](https://simonpringlewallace.github.io/tool-tracker-client/),
+  documentation for which can be found [here](https://github.com/SimonPringleWallace/tool-tracker-client).
 
   Writing tests during the development of this API proved to be one of the
   great satisfactions of the project and also one of the biggest expenditures
